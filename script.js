@@ -1,12 +1,12 @@
 // // Assignment Code
 var pwLength = [];
 
-var lowerCase= [
-    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
-];
+var invalid = isNaN(pwLength)
 
 var upperCase= ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K'", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y","Z"
 ];
+
+var lowerCase= "abcdefghijklmnopqurstuvwxyz".split("");
 
 var pwNum= [1,2,3,4,5,6,7,8,9,0];
 
@@ -18,17 +18,31 @@ var generateBtn = document.querySelector("#generate");
 
 generateBtn.onclick = () => {
     var pwLength = prompt ("How long would like your password to be? (8-128)");
-    if (pwLength>= 8 && pwLength<= 128){
+    console.log(pwLength);
+userPwLength = function (){
+   if (pwLength>= 8 && pwLength<= 128){
         var lowerCase = confirm ("Would you like to include lowercase letters?");
+            console.log(lowerCase);
         var upperCase = confirm ("Would you like to include uppercase letters?");
+            console.log(upperCase);
         var pwNum = confirm ("Would you like to include numbers?");
-        var special = confirm ("Would you like to include special characters?");}
-      else {
+            console.log(pwNum);
+        var special = confirm ("Would you like to include special characters?");
+            console.log(special);
+
+}  else if (invalid){
+    alert("Invalid response");
+    var pwLength = prompt("How long would like your password to be? (8-128)");
+    console.log(pwLength);
+}   else {
         alert("Invalid response");
-        prompt("How long would like your password to be? (8-128)");
-        
-      }
-    }
+        var pwLength = prompt("How long would like your password to be? (8-128)");
+        console.log(pwLength);
+}
+while (invalid=true && pwLength>=8 && pwLength<= 128)
+}
+}
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
